@@ -1,25 +1,15 @@
-/**
- * Testing the NotFoundPage
- */
-
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormattedMessage } from 'react-intl';
 
-import H1 from 'components/H1';
-import NotFound from '../index';
+import NotFoundPage from '../index';
 
-describe('<NotFound />', () => {
-  it('should render the Page Not Found text', () => {
+describe('<NotFoundPage />', () => {
+  it('should render the page message', () => {
     const renderedComponent = shallow(
-      <NotFound />
+      <NotFoundPage />
     );
     expect(renderedComponent.contains(
-      <H1>
-        <FormattedMessage
-          id="boilerplate.containers.NotFoundPage.header"
-          defaultMessage={'Page not found.'}
-        />
-      </H1>)).toEqual(true);
+      <h1><code>404</code> Page Not Found</h1>
+    )).toEqual(true);
   });
 });
