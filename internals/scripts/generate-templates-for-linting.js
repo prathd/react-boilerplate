@@ -1,9 +1,3 @@
-/**
- * This script is for internal `react-boilerplate`'s usage. The only purpose of generating all of these templates is
- * to be able to lint them and detect critical errors. Every generated component's name has to start with
- * 'RbGenerated' so it can be easily excluded from the test coverage reports.
- */
-
 const nodePlop = require('node-plop');
 const path = require('path');
 const chalk = require('chalk');
@@ -33,59 +27,56 @@ const removeTestsDirFrom = (relativePath) => () => rimraf.sync(path.join(__dirna
 const plop = nodePlop('./index');
 
 const componentGen = plop.getGenerator('component');
-componentGen.runActions({ name: 'RbGeneratedComponentEsclass', type: 'React.Component', wantMessages: true, wantLoadable: true, })
+componentGen.runActions({ name: 'GeneratedComponentEsclass', type: 'React.Component', wantLoadable: true, })
   .then(checkForErrors)
-  .then(removeTestsDirFrom('components/RbGeneratedComponentEsclass'))
+  .then(removeTestsDirFrom('components/GeneratedComponentEsclass'))
   .catch(reportErrorsFor('component/React.Component'));
 
-componentGen.runActions({ name: 'RbGeneratedComponentEsclasspure', type: 'React.PureComponent', wantMessages: true, wantLoadable: true })
+componentGen.runActions({ name: 'GeneratedComponentEsclasspure', type: 'React.PureComponent', wantLoadable: true })
   .then(checkForErrors)
-  .then(removeTestsDirFrom('components/RbGeneratedComponentEsclasspure'))
+  .then(removeTestsDirFrom('components/GeneratedComponentEsclasspure'))
   .catch(reportErrorsFor('component/React.PureComponent'));
 
-componentGen.runActions({ name: 'RbGeneratedComponentStatelessfunction', type: 'Stateless Function', wantMessages: true, wantLoadable: true })
+componentGen.runActions({ name: 'GeneratedComponentStatelessfunction', type: 'Stateless Function', wantLoadable: true })
   .then(checkForErrors)
-  .then(removeTestsDirFrom('components/RbGeneratedComponentStatelessfunction'))
+  .then(removeTestsDirFrom('components/GeneratedComponentStatelessfunction'))
   .catch(reportErrorsFor('component/Stateless Function'));
 
 const containerGen = plop.getGenerator('container');
 containerGen.runActions({
-  name: 'RbGeneratedContainerPureComponent',
+  name: 'GeneratedContainerPureComponent',
   type: 'React.PureComponent',
   wantHeaders: true,
   wantActionsAndReducer: true,
   wantSagas: true,
-  wantMessages: true,
   wantLoadable: true,
 })
   .then(checkForErrors)
-  .then(removeTestsDirFrom('containers/RbGeneratedContainerPureComponent'))
+  .then(removeTestsDirFrom('containers/GeneratedContainerPureComponent'))
   .catch(reportErrorsFor('container/React.PureComponent'));
 
 containerGen.runActions({
-  name: 'RbGeneratedContainerComponent',
+  name: 'GeneratedContainerComponent',
   type: 'React.Component',
   wantHeaders: true,
   wantActionsAndReducer: true,
   wantSagas: true,
-  wantMessages: true,
   wantLoadable: true,
 })
   .then(checkForErrors)
-  .then(removeTestsDirFrom('containers/RbGeneratedContainerComponent'))
+  .then(removeTestsDirFrom('containers/GeneratedContainerComponent'))
   .catch(reportErrorsFor('container/React.Component'));
 
 containerGen.runActions({
-  name: 'RbGeneratedContainerStateless',
+  name: 'GeneratedContainerStateless',
   type: 'Stateless Function',
   wantHeaders: true,
   wantActionsAndReducer: true,
   wantSagas: true,
-  wantMessages: true,
   wantLoadable: true,
 })
   .then(checkForErrors)
-  .then(removeTestsDirFrom('containers/RbGeneratedContainerStateless'))
+  .then(removeTestsDirFrom('containers/GeneratedContainerStateless'))
   .catch(reportErrorsFor('container/Stateless'));
 
 const languageGen = plop.getGenerator('language');
